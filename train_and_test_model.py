@@ -21,7 +21,7 @@ dense_size = [100]                         #Number of neurons in dense layer
 dropout = 0.5                              #% of neurons to drop out in training
 initializer = 'glorot_normal'              #Distribution to initialise weights from
 l2_reg = tf.keras.regularizers.l2(l2=0.01) #Amount of L2 reg in dense layer
-save_model = False                         #Whether to save final trained model
+save_model = True                         #Whether to save final trained model
 plotting = True                            #Whether to plot performance for each run
 #Load training and testing data
 ROIs = np.loadtxt('./nn_inputs.txt')
@@ -47,7 +47,7 @@ lr_sched = tf.keras.optimizers.schedules.PiecewiseConstantDecay(boundaries, valu
 val_accs = np.zeros((runs,no_of_epochs))   #Validation accuracy for each epoch
 val_loss = np.zeros((runs,no_of_epochs))   #Validation loss for each epoch
 accuracy =  np.zeros((runs,1));            #Test accuracy for each run
-prediction_stats =  np.zeros((runs,6));    #Various test prediction statistics
+prediction_stats =  np.zeros((runs,9));    #Various test prediction statistics
 
 #Loop through training runs, to get statistics on its accuracy
 for i in range(runs):

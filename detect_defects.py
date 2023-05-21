@@ -27,7 +27,7 @@ negdef_path = save_filepath + '/NegDefects' #Location of -1/2 defect files
 angles = True #Whether to save the detected defects orientation along with position 
 
 #Load CNN model
-model_filepath ='./SavedModel'
+model_filepath ='./SavedModelInsertModelName'
 model = keras.models.load_model(model_filepath)
 
 #Load experimental data

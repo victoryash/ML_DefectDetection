@@ -94,8 +94,10 @@ def MLPrediction(inputs,model):
 def SaveDefects(posdef_path,negdef_path,pos_defs,neg_defs,image_num):  
     #Add a larger buffer of zeros. Needs to be increased if >1e7 images are being processed
     filename = 'posdefects%06d.txt' % image_num
+    os.makedirs(posdef_path, exist_ok=True)
     np.savetxt(os.path.join(posdef_path, filename),pos_defs, delimiter=',')
     filename = 'negdefects%06d.txt' % image_num
+    os.makedirs(negdef_path, exist_ok=True)
     np.savetxt(os.path.join(negdef_path, filename),neg_defs, delimiter=',')
     return None
 

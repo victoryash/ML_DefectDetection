@@ -28,13 +28,13 @@ set key right top box opaque
 
 #Filepaths to appropriate files, and set appropriate separator
 set datafile separator ","
-cell_files(n) = sprintf('./CellFiles/points%06d.txt', n)
-posdefect_files(n) = sprintf('./DefectFiles/PosDefects/posdefects%06d.txt', n)
-negdefect_files(n) = sprintf('./DefectFiles/NegDefects/negdefects%06d.txt', n)
+cell_files(n) = sprintf(r"C:\Users\victo\Downloads\ML_DefectDetection\CellFiles\points%06d.txt", n)
+posdefect_files(n) = sprintf(r"C:\Users\victo\Downloads\ML_DefectDetection\DefectFiles\PosDefects\posdefects%06d.txt", n)
+negdefect_files(n) = sprintf(r"C:\Users\victo\Downloads\ML_DefectDetection\DefectFiles\NegDefects\negdefects%06d.txt", n)
 
 #Plot data, also plotting the orientation of each cell's long axis
 do for [i = start:stop] {
-    outfile = sprintf('./Figures/figure%06d.png',i) #Location file will be wrttien to
+    outfile = sprintf(r"C:\Users\victo\Downloads\ML_DefectDetection\figure%06d.png",i) #Location file will be wrttien to
     set output outfile
     #unset key
     plot cell_files(i) using 1:2:(0.35*cos($3)):(0.35*sin($3)) with vectors nohead ls 1 notitle, \
